@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AA.PMTOGO.Authentication\AA.PMTOGO.Authentication.csproj" />
+    <ProjectReference Include="..\AA.PMTOGO.Models\AA.PMTOGO.Models.csproj" />
+    <ProjectReference Include="..\AA.PMTOGO.Registration\AA.PMTOGO.Registration.csproj" />
+  </ItemGroup>
+
+</Project>
