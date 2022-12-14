@@ -7,18 +7,18 @@ namespace AA.PMTOGO.Authentication
     public class Authenticator
     {
 
+        SqlAuthenticateDAO _authNDAO = new SqlAuthenticateDAO();
+
         public Result Authenticate(string username, string password)
         {
             Result result = new Result();
-            SqlAuthenticateDAO _authNDAO = new SqlAuthenticateDAO();
-            result = _authNDAO.FindUser(username, password);
+            result = _authNDAO.Authenticate(username, password);
 
             return result;
         }
 
         public void FailedAuthenticationAttempt(string username)
         {
-            SqlAuthenticateDAO _authNDAO = new SqlAuthenticateDAO();
             _authNDAO.LogFailedAuthenticationAttempts(username);
         }
 
