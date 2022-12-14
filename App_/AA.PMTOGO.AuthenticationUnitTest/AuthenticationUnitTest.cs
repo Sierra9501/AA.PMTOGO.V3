@@ -61,9 +61,9 @@ namespace AA.PMTOGO.AuthenticationTest
             var authenticator = new Authenticator();
 
             // Act
-            bool checkValidPassphrase = authenticator.ValidatePassword("aZ09  .,@!").IsSuccessful;
-            bool checkPassphraseNotValidCharacters = authenticator.ValidatePassword("[apple]").IsSuccessful;
-            bool checkPassphraseNotValidlength = authenticator.ValidatePassword("pass123").IsSuccessful;
+            bool checkValidPassphrase = ValidatePassword("aZ09  .,@!").IsSuccessful;
+            bool checkPassphraseNotValidCharacters = ValidatePassword("[apple]").IsSuccessful;
+            bool checkPassphraseNotValidlength = ValidatePassword("pass123").IsSuccessful;
 
 
             // Assert
@@ -75,7 +75,7 @@ namespace AA.PMTOGO.AuthenticationTest
             Assert.IsFalse(checkPassphraseNotValidlength);
         }
 
-        //Valid OTP
+        //Valid OTP dont have this function
         [TestMethod]
         public void ShouldProvideValidOTP()
         {
@@ -83,11 +83,11 @@ namespace AA.PMTOGO.AuthenticationTest
             var authenticator = new Authenticator();
 
             // Act
-            bool checkValidOTP = authenticator.CheckValidOTP("abcABC123");
-            bool checkInvalidMinimumOTPLength = authenticator.CheckValidOTP("abc123");
-            bool checkInvalidMaximumOTPLength = authenticator.CheckValidOTP("abcdefghijklmnopqrstuvwxyz01234567890abcdefghijklmnopqrstuvwxyz123");
-            bool checkInvalidOTPCharacters = authenticator.CheckValidOTP("abcABC.123");
-            bool checkBlankOTP = authenticator.CheckValidOTP(null);
+            bool checkValidOTP = CheckValidOTP("abcABC123");
+            bool checkInvalidMinimumOTPLength = CheckValidOTP("abc123");
+            bool checkInvalidMaximumOTPLength = CheckValidOTP("abcdefghijklmnopqrstuvwxyz01234567890abcdefghijklmnopqrstuvwxyz123");
+            bool checkInvalidOTPCharacters = CheckValidOTP("abcABC.123");
+            bool checkBlankOTP = CheckValidOTP(null);
 
             // Assert
             Assert.IsNotNull(checkValidOTP);
@@ -110,7 +110,7 @@ namespace AA.PMTOGO.AuthenticationTest
             var authenticator = new Authenticator();
 
             // Act
-            var checkGenerateOTP = authenticator.GenerateOTP("username@gmail.com");
+            var checkGenerateOTP = authenticator.GenerateOTP();
 
 
             // Assert
@@ -120,45 +120,21 @@ namespace AA.PMTOGO.AuthenticationTest
             Assert.IsTrue(Regex.IsMatch(checkGenerateOTP, @"^[a-zA-Z0-9\s]+$"));
         }
 
-        [TestMethod]
-        public void ShouldCheckIfUserSessionIsAuthenticated()
-        {
-            // Arrange
-            var authenticator = new Authenticator();
-
-            // Act
-            bool checkUserSessionNotAuthentication = authenticator.CheckUserSessionAthentication();
-            var generateOTP = authenticator.generateOTP("username@gmail.com");
-            bool authenticateUser = authenticator.AuthenticateUser("Username@gmail.com", generateOTP);
-            bool checkUserSessionIsAuthentication = authenticator.CheckUserSessionAthentication();
-
-            // Assert
-            Assert.IsNotNull(checkUserSessionNotAuthentication);
-            Assert.IsNotNull(generateOTP);
-            Assert.IsNotNull(authenticateUser);
-            Assert.IsNotNull(checkUserSessionIsAuthentication);
-
-            Assert.IsTrue(checkUserSessionNotAuthentication);
-            Assert.IsTrue(authenticateUser);
-            Assert.IsFalse(checkUserSessionIsAuthentication);
-        }
-
 
         [TestMethod]
         public void ShouldAuthenticateUser()
         {
             // Arrange
             var authenticator = new Authenticator();
-
+            string pass = "weakpass";
+            
             // Act
-            var generateOTP = authenticator.generateOTP("username@gmail.com");
-            bool checkValidUserAuthentication = authenticator.AuthenticateUser("username@gmail.com", generateOTP);
-            bool checkInvalidUsernameAuthentication = authenticator.AuthenticateUser("abc", generateOTP);
-            bool checkInvalidOTPAuthentication = authenticator.AuthenticateUser("username@gmail.com", "abc");
-            bool checkNullUserAuthentication = authenticator.AuthenticateUser(null, null);
+            bool checkValidUserAuthentication = authenticator.Authenticate("username@gmail.com", pass).IsSuccessful;
+            bool checkInvalidUsernameAuthentication = authenticator.Authenticate("abc", pass).IsSuccessful;
+            bool checkInvalidOTPAuthentication = authenticator.Authenticate("username@gmail.com", "abc").IsSuccessful;
+            bool checkNullUserAuthentication = authenticator.Authenticate(null, null).IsSuccessful;
 
-            // Assert
-            Assert.IsNotNull(generateOTP);
+            // Asserrt
             Assert.IsNotNull(checkValidUserAuthentication);
             Assert.IsNotNull(checkInvalidUsernameAuthentication);
             Assert.IsNotNull(checkInvalidOTPAuthentication);
@@ -176,93 +152,23 @@ namespace AA.PMTOGO.AuthenticationTest
             // Arrange
             var authenticator = new Authenticator();
 
-            // Act
-            bool checkIfAccountIsNotLocked = authenticator.LockAccount("Username@gmail.com");
-            bool failAuthenticationFirstTime = authenticator.AuthenticateUser("Username@gmail.com", "abc");
-            bool failAuthenticationSecondTime = authenticator.AuthenticateUser("Username@gmail.com", "abc");
-            bool failAuthenticationThirdTime = authenticator.AuthenticateUser("Username@gmail.com", "abc");
-            bool checkIfAccountIsLocked = authenticator.LockAccount("Username@gmail.com");
+            
 
+            // Act
+            bool failAuthenticationFirstTime = authenticator.Authenticate("Username@gmail.com", "abc").IsSuccessful;
+            bool failAuthenticationSecondTime = authenticator.Authenticate("Username@gmail.com", "abc").IsSuccessful;
+            bool failAuthenticationThirdTime = authenticator.Authenticate("Username@gmail.com", "abc").IsSuccessful;
+           
             // Assert
-            Assert.IsNotNull(checkIfAccountIsNotLocked);
             Assert.IsNotNull(failAuthenticationFirstTime);
             Assert.IsNotNull(failAuthenticationSecondTime);
             Assert.IsNotNull(failAuthenticationThirdTime);
-            Assert.IsNotNull(checkIfAccountIsLocked);
 
-            Assert.IsFalse(checkIfAccountIsNotLocked);
             Assert.IsFalse(failAuthenticationFirstTime);
             Assert.IsFalse(failAuthenticationSecondTime);
             Assert.IsFalse(failAuthenticationThirdTime);
-            Assert.IsTrue(checkIfAccountIsLocked);
-        }
-
-        [TestMethod]
-        public void ShouldChangeOTPAfterUse()
-        {
-            // Arrange
-            var authenticator = new Authenticator();
-            var generateOTP = authenticator.generateOTP("username@gmail.com");
-            bool authenticateUser = authenticator.AuthenticateUser("Username@gmail.com", generateOTP);
-
-            // Act
-            bool authenticateUserWithSameOTP = authenticator.AuthenticateUser("Username@gmail.com", generateOTP);
-
-            // Assert
-            Assert.IsNotNull(generateOTP);
-            Assert.IsNotNull(authenticateUser);
-            Assert.IsNotNull(authenticateUserWithSameOTP);
-
-            Assert.IsTrue(authenticateUser);
-            Assert.IsTrue(authenticateUserWithSameOTP);
 
         }
 
-        [TestMethod]
-        public void ShouldHaveOTPExpireIn2Minutes()
-        {
-            // Arrange
-            var authenticator = new Authenticator();
-
-            // Act
-            var generateOTP = authenticator.generateOTP("username@gmail.com");
-            Task.Delay(120);
-            bool authenticateUser = authenticator.AuthenticateUser("Username@gmail.com", generateOTP);
-
-            // Assert
-            Assert.IsNotNull(generateOTP);
-            Assert.IsNotNull(authenticateUser);
-
-            Assert.IsFalse(authenticateUser);
-        }
-
-        [TestMethod]
-        public void ShouldSetLockTimer()
-        {
-            // Arrange
-            var authenticator = new Authenticator();
-
-            // Act
-            var checkTimer = authenticator.LockTimer("Username@gmail.com", false);
-
-            // Assert
-            Assert.IsNotNull(checkTimer);
-
-            Assert.IsTrue(checkTimer <= 86400);
-        }
-
-        public void ShouldResetLockTimer()
-        {
-            // Arrange
-            var authenticator = new Authenticator();
-
-            // Act
-            var checkTimer = authenticator.LockTimer("Username@gmail.com", true);
-
-            // Assert
-            Assert.IsNotNull(checkTimer);
-
-            Assert.IsTrue(checkTimer == 86400);
-        }
     }
 }
