@@ -11,7 +11,7 @@ namespace AA.PMTOGO.Registration
 
         //private Sql registrationDAO = new SqlRegistrationDAO();
 
-        public Registration()
+        public Registrator()
         {
 
         }
@@ -69,3 +69,4 @@ namespace AA.PMTOGO.Registration
         }
     }
 
+}
