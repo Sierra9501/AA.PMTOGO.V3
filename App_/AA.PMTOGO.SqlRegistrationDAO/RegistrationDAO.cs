@@ -10,7 +10,7 @@ namespace AA.PMTOGO.SqlRegistrationDAO
 {
     public class RegistrationDAO
     {
-        private static readonly string _connectionString = @"Server=.\SQLEXPRESS;Database=AA.PMTOGO.Registration;Trusted_Connection=True;Encrypt=false";
+        private static readonly string _connectionString = @"Server=.\SQLEXPRESS;Database=AA.Users;Trusted_Connection=True;Encrypt=false";
         //private DatabaseLogger _Logger = new DatabaseLogger("business", new SqlLoggerDAO());
         public RegistrationDAO()
         {
@@ -34,11 +34,11 @@ namespace AA.PMTOGO.SqlRegistrationDAO
                     while (reader.Read())
                     {
                         var user = new User();
-                        user.Username = (string)reader["Username"];
-                        user.Password = (byte[])reader["Password"];
+                        user.username = (string)reader["Username"];
+                        user.password = (string)reader["Password"];
                         user.salt = (byte[])reader["Salt"];
-                        user.isActive = (bool)reader["isActive"];
-                        user.role = (string)reader["role"];
+                        user.isActive = (bool)reader["IsActive"];
+                        user.attempts = (int)reader["Attempts"];
 
                         return user;
                     }
@@ -167,14 +167,14 @@ namespace AA.PMTOGO.SqlRegistrationDAO
             result.IsSuccessful = false;
             return result;
         }
-        public Result SaveUserAccount(string email, byte[] password, byte[] salt, string role)
+        public Result SaveUserAccount(string email, string password, byte[] salt, string role)
         {
             var result = new Result();
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
 
-                string sqlQuery = "insert into UserAccounts values ( @email, @password, @salt, @role)";
+                string sqlQuery = "insert into UserAccounts values ( @email, @password, @salt, 1, @role)";
 
                 var command = new SqlCommand(sqlQuery, connection);
 
@@ -215,6 +215,55 @@ namespace AA.PMTOGO.SqlRegistrationDAO
             result.IsSuccessful = false;
             return result;
         }
-       
+        public Result SaveUserProfile(string email, string firstName, string lastName, DateTime dob, int role)
+        {
+            var result = new Result();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                string sqlQuery = "insert into UserProfiles values ( @email, @firstName, @lastName, @dob, @role)";
+
+                var command = new SqlCommand(sqlQuery, connection);
+
+                command.Parameters.AddWithValue("@email", email);
+                command.Parameters.AddWithValue("@firstName", firstName);
+                command.Parameters.AddWithValue("@lastName", lastName);
+                command.Parameters.AddWithValue("@dob", dob);
+                command.Parameters.AddWithValue("@role", role);
+
+
+                try
+                {
+                    var rows = command.ExecuteNonQuery();
+
+                    if (rows == 1)
+                    {
+                        result.IsSuccessful = true;
+                        return result;
+                    }
+
+                    else
+                    {
+                        result.IsSuccessful = false;
+                        result.ErrorMessage = "too many rows affected";
+                        return result;
+                    }
+                }
+
+                catch (SqlException e)
+                {
+                    if (e.Number == 208)
+                    {
+                        // _Logger.AsyncLog("error", "addUser", "Specified table not found.");
+                    }
+                }
+
+            }
+
+            result.IsSuccessful = false;
+            return result;
+        }
+
     }
 }

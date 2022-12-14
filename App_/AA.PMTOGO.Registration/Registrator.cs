@@ -11,7 +11,7 @@ namespace AA.PMTOGO.Registration
 
         //private Sql registrationDAO = new SqlRegistrationDAO();
 
-        public Registrator()
+        public Registration()
         {
 
         }
@@ -39,7 +39,7 @@ namespace AA.PMTOGO.Registration
             return encryptedPass;
         }
 
-        public Result CreateUser(string email, byte[] pass, byte[] salt, string role)
+        public Result CreateUser(string email, string password, string role)
         {
             RegistrationDAO registrationDAO = new RegistrationDAO();
             var result = new Result();
@@ -47,13 +47,16 @@ namespace AA.PMTOGO.Registration
 
             if (user == null)
             {
-                //var salt = GenerateSalt();
-              
+                var salt = GenerateSalt();
+                var password_digest = EncrpytPassword(password, salt);
 
                 //add user account
-                registrationDAO.SaveUserAccount(email, pass, salt, role);
+                registrationDAO.SaveUserAccount(email, password, salt, role);
                 //_Logger.Log("info", "CreateUserAccount", "Succesfully created an user");
 
+                //add user profile
+                //registrationDAO.SaveUserProfile(email, firstname, lastname, dob, role);
+                //_Logger.Log("info", "CreateUserProfile", "Succesfully created an user");
                 result.IsSuccessful = true;
                 return result;
             }
@@ -65,5 +68,4 @@ namespace AA.PMTOGO.Registration
             }
         }
     }
-}
 
