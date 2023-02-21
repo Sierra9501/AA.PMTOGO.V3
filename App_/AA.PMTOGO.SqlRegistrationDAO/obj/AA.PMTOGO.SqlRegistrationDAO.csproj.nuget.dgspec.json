@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\AA.PMTOGO.SqlRegistrationDAO.csproj": {}
+    "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\AA.PMTOGO.SqlRegistrationDAO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj": {
+    "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj",
+        "projectUniqueName": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj",
         "projectName": "AA.PMTOGO.Models",
-        "projectPath": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj",
-        "packagesPath": "C:\\Users\\mssie_fu6p4ih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\obj\\",
+        "projectPath": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj",
+        "packagesPath": "C:\\Users\\Shiro\\.nuget\\packages\\",
+        "outputPath": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mssie_fu6p4ih\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Shiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,21 +55,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\AA.PMTOGO.SqlRegistrationDAO.csproj": {
+    "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\AA.PMTOGO.SqlRegistrationDAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\AA.PMTOGO.SqlRegistrationDAO.csproj",
+        "projectUniqueName": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\AA.PMTOGO.SqlRegistrationDAO.csproj",
         "projectName": "AA.PMTOGO.SqlRegistrationDAO",
-        "projectPath": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\AA.PMTOGO.SqlRegistrationDAO.csproj",
-        "packagesPath": "C:\\Users\\mssie_fu6p4ih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\obj\\",
+        "projectPath": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\AA.PMTOGO.SqlRegistrationDAO.csproj",
+        "packagesPath": "C:\\Users\\Shiro\\.nuget\\packages\\",
+        "outputPath": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlRegistrationDAO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mssie_fu6p4ih\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Shiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,8 +83,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj": {
-                "projectPath": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj"
+              "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj": {
+                "projectPath": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj"
               }
             }
           }
@@ -120,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

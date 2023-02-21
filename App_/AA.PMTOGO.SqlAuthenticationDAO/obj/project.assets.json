@@ -486,19 +486,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mssie_fu6p4ih\\.nuget\\packages\\": {}
+    "C:\\Users\\Shiro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlAuthenticationDAO\\AA.PMTOGO.SqlAuthenticationDAO.csproj",
+      "projectUniqueName": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlAuthenticationDAO\\AA.PMTOGO.SqlAuthenticationDAO.csproj",
       "projectName": "AA.PMTOGO.SqlAuthenticationDAO",
-      "projectPath": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlAuthenticationDAO\\AA.PMTOGO.SqlAuthenticationDAO.csproj",
-      "packagesPath": "C:\\Users\\mssie_fu6p4ih\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlAuthenticationDAO\\obj\\",
+      "projectPath": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlAuthenticationDAO\\AA.PMTOGO.SqlAuthenticationDAO.csproj",
+      "packagesPath": "C:\\Users\\Shiro\\.nuget\\packages\\",
+      "outputPath": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.SqlAuthenticationDAO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mssie_fu6p4ih\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Shiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -512,8 +512,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj": {
-              "projectPath": "C:\\Users\\mssie_fu6p4ih\\FINAL\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj"
+            "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj": {
+              "projectPath": "D:\\Program Files (x86)\\Class Stuff\\Sem11\\AA.PMTOGO.V3\\App_\\AA.PMTOGO.Models\\AA.PMTOGO.Models.csproj"
             }
           }
         }
@@ -549,7 +549,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
